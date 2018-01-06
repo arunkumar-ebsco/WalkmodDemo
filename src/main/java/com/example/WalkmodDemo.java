@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-//Violation 1
-
 public class WalkmodDemo {
 
     void methodabc(String xyz) { // Unused method params
@@ -19,7 +17,7 @@ public class WalkmodDemo {
             // do something
         }
 
-        // Violation 4 : If loops should be nested
+        // Violation 4 : If loops should not be nested
         String s = "Sample";
         if (null != s) {
 
