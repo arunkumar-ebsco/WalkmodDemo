@@ -11,8 +11,3 @@ for(type in node.types){
         field.setModifiers(modifiers);
     }
 }
-
-
-println "XXXXXXXXXXXXXXX"
-println "XXXXXXXXXXXXXXX"
-println "XXXXXXXXXXXXXXX"

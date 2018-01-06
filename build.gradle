@@ -7,7 +7,9 @@ buildscript {
     }
     dependencies {
         classpath("org.walkmod:gradle-walkmod-plugin:0.0.1")
+        classpath("org.walkmod:walkmod-javalang-plugin:3.0.5")
         //classpath("org.walkmod:walkmod-sonar-plugin:1.2.2")
+
     }
 }
 
@@ -29,6 +31,8 @@ repositories {
 
 dependencies {
     //compile 'org.walkmod:walkmod-sonar-plugin:1.2.2'
+    compile group: 'org.walkmod', name: 'walkmod-core', version: '3.0.3'
+    compile group: 'org.walkmod', name: 'walkmod-javalang-plugin', version: '3.0.5'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
