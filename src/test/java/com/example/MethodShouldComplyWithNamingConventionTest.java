@@ -10,7 +10,11 @@ public class MethodShouldComplyWithNamingConventionTest extends SemanticTest {
 
     @Test
     public void testMethodNameCorrection() throws Exception {
-        CompilationUnit cu = compile("public class Test1 { void some_method(){}; }");
+        CompilationUnit cu = compile(
+                "public class Foo { "+
+                                "public void some_method() { "+
+                                " }"+
+                        " } ");
         MethodShouldComplyWithNamingConvention visitor = new MethodShouldComplyWithNamingConvention();
         cu.accept(visitor, null);
         MethodDeclaration md = (MethodDeclaration) cu.getTypes().get(0).getMembers().get(0);
@@ -18,6 +22,8 @@ public class MethodShouldComplyWithNamingConventionTest extends SemanticTest {
         Assert.assertEquals("someMethod",name);
 
     }
+
+
 
 
 

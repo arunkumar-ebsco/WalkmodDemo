@@ -9,7 +9,6 @@ import org.walkmod.walkers.VisitorContext;
 
 import java.util.List;
 
-
 @RequiresSemanticAnalysis
 public class MethodShouldComplyWithNamingConvention extends VoidVisitorAdapter<VisitorContext> {
 
@@ -31,18 +30,12 @@ public class MethodShouldComplyWithNamingConvention extends VoidVisitorAdapter<V
     private String getValidNewName(String name) {
         char[] letters = name.toCharArray();
         String result = "";
-        boolean toUpperCase = false;
         for (int i = 0; i < letters.length; i++) {
             if (letters[i] == '$' || letters[i] == '_') {
                 i++;
-                toUpperCase = true;
+                result += Character.toUpperCase(letters[i]);
             } else {
-                if (toUpperCase) {
-                    result += Character.toUpperCase(letters[i]);
-                    toUpperCase = false;
-                } else {
-                    result += Character.toLowerCase(letters[i]);
-                }
+                result += Character.toLowerCase(letters[i]);
             }
         }
         return result;
@@ -50,8 +43,9 @@ public class MethodShouldComplyWithNamingConvention extends VoidVisitorAdapter<V
 
     @Override
     public void visit(ClassOrInterfaceDeclaration n, VisitorContext ctx) {
+        super.visit(n, ctx);
         List<BodyDeclaration> members = n.getMembers();
-        for (int i = 0; i < members.size();) {
+        for (int i = 0; i < members.size(); i++) {
             BodyDeclaration bodyDeclaration = members.get(i);
             if (bodyDeclaration instanceof MethodDeclaration) {
                 MethodDeclaration methodDeclaration = ((MethodDeclaration) bodyDeclaration);
@@ -61,7 +55,6 @@ public class MethodShouldComplyWithNamingConvention extends VoidVisitorAdapter<V
                 }
             }
         }
-        //super.visit(n, ctx);
     }
 
 }
