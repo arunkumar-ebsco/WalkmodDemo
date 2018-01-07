@@ -3,10 +3,9 @@ package com.example;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
 public class WalkmodDemo {
 
-    void methodabc(String xyz) { // Unused method params
+    void someMethod(String xyz) { // Unused method params
 
         // Violation : Unused variables
         int x = 5;
