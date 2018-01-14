@@ -1,7 +1,7 @@
 <!DOCTYPE walkmod PUBLIC "-//WALKMOD//DTD" "http://www.walkmod.com/dtd/walkmod-1.1.dtd">
 <walkmod>
     <plugins>
-        <plugin groupId="org.walkmod" artifactId="walkmod-imports-cleaner-plugin" version="2.0" />
+        <plugin artifactId="walkmod-imports-cleaner-plugin" groupId="org.walkmod" version="2.0"/>
     </plugins>
     <chain name="main">
         <transformation type="dead-code-cleaner"/>
@@ -33,5 +33,9 @@
             <param name="location">walkmod/fields.groovy</param>
         </transformation>
     </chain>
-
+    <chain name="default">
+        <transformation type="pmd">
+            <param name="configurationFile">pmd.xml</param>
+        </transformation>
+    </chain>
 </walkmod>
