@@ -3,8 +3,18 @@
     <plugins>
         <plugin artifactId="walkmod-imports-cleaner-plugin" groupId="org.walkmod" version="2.0"/>
     </plugins>
+    <chain name="chain1">
+        <transformation type="pmd" isMergeable="true">
+            <param name="configurationFile">pmd.xml</param>
+        </transformation>
+    </chain>
+    <chain name="chain2">
+        <transformation type="checkstyle" isMergeable="true">
+            <param name="configurationFile">google_checkstyle_java.xml</param>
+        </transformation>
+    </chain>
     <chain name="main">
-        <transformation type="dead-code-cleaner"/>
+        <transformation type="dead-code-cleaner" />
         <transformation type="sonar:AddCurlyBrackets"/>
         <transformation type="sonar:AddSwitchDefaultCase"/>
         <transformation type="sonar:ArrayDesignatorOnType"/>
@@ -25,17 +35,13 @@
         <transformation type="sonar:UseCollectionIsEmpty"/>
         <transformation type="sonar:UseStringEquals"/>
         <transformation type="sonar:VariableImmediatelyReturned"/>
-        <transformation type="walkmod:commons:scripting">
+        <!--<transformation type="walkmod:commons:scripting">
             <param name="language">groovy</param>
             <param name="location">walkmod/javadoc.groovy</param>
         </transformation>
         <transformation name="private-fields" type="script">
             <param name="location">walkmod/fields.groovy</param>
-        </transformation>
+        </transformation>-->
     </chain>
-    <chain name="default">
-        <transformation type="pmd">
-            <param name="configurationFile">pmd.xml</param>
-        </transformation>
-    </chain>
+
 </walkmod>
