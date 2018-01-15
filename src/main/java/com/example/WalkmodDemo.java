@@ -24,7 +24,6 @@ public class WalkmodDemo {
                 // do something
             }
         }
-
         if(s.equalsIgnoreCase("Sample")){
             //do something
         }
